@@ -57,7 +57,7 @@ function SetDataToUI(weatherData) {
   console.log(weatherData);
   let temp = Math.floor(weatherData.main.temp);
   let html = `<div class="header">
-    <h4 class="city-name">${weatherData.name}</h4>
+    <h4 class="city-name">${weatherData.sys.country} / ${weatherData.name}</h4>
 </div>
 <div class="body">
     <img src="http://openweathermap.org/img/wn/${
