@@ -21,7 +21,7 @@ body {
   justify-content: center;
   min-height: 100vh;
 }
-.error{
+.error {
   opacity: 0;
   transition: opacity 1s ease;
   color: #842029;
@@ -31,7 +31,7 @@ body {
   padding: 1rem;
   border-radius: 5px;
 }
-.error.active{
+.error.active {
   opacity: 1;
 }
 main {
@@ -44,21 +44,21 @@ main {
   min-height: auto;
   background-color: var(--box);
 }
-.Loading.active{
+.Loading.active {
   display: block;
 }
-.Loading{
+.Loading {
   display: none;
 }
-.loaded.active{
+.loaded.active {
   display: block;
 }
-.loaded{
+.loaded {
   display: none;
 }
-.header{
-    padding: 0px 0px .5rem 0px;
-    border-bottom: 1px solid var(--color);
+.header {
+  padding: 0px 0px 0.5rem 0px;
+  border-bottom: 1px solid var(--color);
 }
 .city-name {
   font-size: 1.5rem;
@@ -66,49 +66,56 @@ main {
   letter-spacing: 1px;
   text-align: center;
 }
-main .body{
-    display: flex;
-    align-items: center;
-    padding: 1rem 0px;
-    flex-direction: column;
+main .body {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0px;
+  flex-direction: column;
 }
-.current-weather-icon{
-    width: 128px;
-    height: 128px;
+.current-weather-icon {
+  width: 128px;
+  height: 128px;
 }
-.current-weather-text{
-    margin-top: .2rem;
-    letter-spacing: 1px;
-    color: var(--color);
-    font-size: 1.5rem;
+.current-weather-text {
+  margin-top: 0.2rem;
+  letter-spacing: 1px;
+  color: var(--color);
+  font-size: 1.5rem;
 }
-.footer{
-    padding: 1rem 0px;
-    border-top: 1px solid var(--color);
-    display: flex;
-    align-items: center;
+.footer {
+  padding: 1rem 0px;
+  border-top: 1px solid var(--color);
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  align-items: center;
 }
-.footer .data{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-basis: 50%;
+.footer .data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 50%;
 }
-.current-data-icon{
-    width: 48px;
-    height: 48px;
-    margin-right: .5rem;
+.footer .data span {
+  color: var(--color);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
 }
-.current-data-text{
+.current-data-icon {
+  width: 48px;
+  height: 48px;
+  margin-right: 0.5rem;
+}
+.current-data-text {
   margin-top: 1rem;
-    font-size: 1.5rem;
-    color: var(--color);
+  font-size: 1.5rem;
+  color: var(--color);
 }
-.data:nth-child(odd){
-    border-right: 1px solid var(--color);
+.data:nth-child(odd) {
+  border-right: 1px solid var(--color);
 }
-.search{
+.search {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -116,15 +123,15 @@ main .body{
   border-bottom: 2px solid var(--back);
   width: 100%;
 }
-.search img{
+.search img {
   width: 24px;
   height: 24px;
   cursor: pointer;
 }
-.search-input{
+.search-input {
   font-size: 1.2rem;
   width: 90%;
-  padding: .5rem;
+  padding: 0.5rem;
   outline: none;
   border: none;
   background-color: transparent;
@@ -132,38 +139,35 @@ main .body{
   letter-spacing: 1px;
   text-align: center;
 }
-.search-input::placeholder{
+.search-input::placeholder {
   color: var(--color);
 }
 
-.Loading{
+.Loading {
   margin: 0px auto;
   width: 50px;
   height: 50px;
-  border-radius:50px;
+  border-radius: 50px;
   border: 5px solid var(--back);
   border-bottom: 5px solid transparent;
-  animation: spin 2s linear  infinite;
+  animation: spin 2s linear infinite;
 }
 @keyframes spin {
-  from{
+  from {
     transform: rotate(0deg);
   }
-  to{
+  to {
     transform: rotate(360deg);
   }
 }
 
-@media screen and (max-width: 567px) {
-  main {
-    flex-basis: 90vw;
-  }
+.me {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
-/* ME */
-.me{
-  margin: 0 auto;
-}
-.me span{
+.me span {
   color: red;
   font-size: 1.2rem;
 }
@@ -171,8 +175,38 @@ main .body{
   color: var(--color);
   font-size: 1.1rem;
 }
-.me a{
+.me a {
   color: var(--back);
   text-decoration: none;
   font-size: 1.1rem;
+}
+
+@media screen and (max-width: 567px) {
+  main {
+    flex-basis: 90vw;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .me span {
+    font-size: 0.9rem;
+  }
+  .me {
+    font-size: 0.9rem;
+  }
+  .me a {
+    font-size: 1rem;
+  }
+  .footer .data span {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+}
+@media screen and (max-width: 290px) {
+  .footer .data{
+    padding: 1rem 0;
+    flex-basis: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--color);
+  }
 }

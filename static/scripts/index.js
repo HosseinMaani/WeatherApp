@@ -23,7 +23,7 @@ search.addEventListener("click", () => {
 // Get User Location When Page Is Loaded
 window.addEventListener("load", () => {
   navigator.geolocation.getCurrentPosition(setLocation, (e) =>
-    GetCityWeather("Tehran",true)
+    GetCityWeather("Tehran", true)
   );
 });
 
@@ -39,7 +39,7 @@ async function GetLocationWithGeo(lat, lon) {
   SetDataToUI(await result.json());
 }
 // Fetch Api With City Name
-async function GetCityWeather(city,first = false) {
+async function GetCityWeather(city, first = false) {
   loading.classList.toggle("active");
   loaded.classList.toggle("active");
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`;
@@ -55,16 +55,13 @@ async function GetCityWeather(city,first = false) {
     setTimeout(() => {
       error.classList.toggle("active");
     }, 5000);
-  } else SetDataToUI(await result.json(),first);
+  } else SetDataToUI(await result.json(), first);
 }
-
 // Add Weather Data To Ui .loaded class
 function SetDataToUI(weatherData, first = false) {
   let temp = Math.floor(weatherData.main.temp);
   let html = `<div class="header">
-                  <h4 class="city-name">${weatherData.sys.country} / ${
-    weatherData.name
-  }</h4>
+                  <h4 class="city-name">${weatherData.sys.country} / ${weatherData.name}</h4>
               </div>
               <div class="body">
                   <img src="http://openweathermap.org/img/wn/${
@@ -82,12 +79,28 @@ function SetDataToUI(weatherData, first = false) {
                           : "./static/images/freezing.png"
                       }" class="current-data-icon" alt="">
                       <h4 class="current-data-text">${temp} C</h4>
+                      <span>Temperature</span>
                   </div>
                   <div class="data">
                       <img src="./static/images/wind.png" class="current-data-icon" alt="">
                       <h4 class="current-data-text">${
                         weatherData.wind.speed
                       } KM</h4>
+                      <span>Wind</span>
+                  </div>
+                  <div class="data">
+                      <img src="./static/images/humidity.png" class="current-data-icon" alt="">
+                      <h4 class="current-data-text">${
+                        weatherData.main.humidity
+                      } %</h4>
+                      <span>Humidity</span>
+                  </div>
+                  <div class="data">
+                      <img src="./static/images/clouds.png" class="current-data-icon" alt="">
+                      <h4 class="current-data-text">${
+                        weatherData.clouds.all
+                      } %</h4>
+                      <span>Clouds</span>
                   </div>
               </div>`;
   loaded.innerHTML = html;
